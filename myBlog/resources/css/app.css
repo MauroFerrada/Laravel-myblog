@@ -1,3 +1,36 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* resources/css/app.css */
+body {
+    font-family: 'Figtree', sans-serif;
+}
+
+.posts-container {
+    margin: 20px 0;
+}
+
+.posts-container h1 {
+    margin-bottom: 20px;
+}
+
+.posts-container ul {
+    list-style-type: disc;
+    padding-left: 20px;
+}
+
+.posts-container li {
+    margin-bottom: 10px;
+}
+
+.posts-container a {
+    text-decoration: none;
+    color: #1D4ED8; /* Tailwind CSS blue-500 */
+    transition: color 0.3s;
+}
+
+.posts-container a:hover {
+    text-decoration: underline;
+    color: #2563EB; /* Tailwind CSS blue-600 */
+}

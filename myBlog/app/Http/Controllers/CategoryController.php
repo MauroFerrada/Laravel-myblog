@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use App\Models\post;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class CategoryController extends Controller
 {
@@ -23,12 +24,16 @@ class CategoryController extends Controller
     }
 
     public function store(Request $request) {
-        $post = new post();
+        $validatedData = $request->validate([
+            'title' => 'required|max:255',
+            'content' => 'required',
+        ]);
+        
 
-        $post->title=$request->title;
-        $post->content=$request->content;
-        $post->poster=$request->poster;
-
+        $post = new Post();
+        $post->title = $validatedData['title'];
+        $post->content = $validatedData['content'];
+        $post->poster = Auth::user()->name;  
         $post->save();
 
         return redirect("/category");
