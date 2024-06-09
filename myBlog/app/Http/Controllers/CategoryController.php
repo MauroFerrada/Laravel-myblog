@@ -22,6 +22,18 @@ class CategoryController extends Controller
         return view('category/create');
     }
 
+    public function store(Request $request) {
+        $post = new post();
+
+        $post->title=$request->title;
+        $post->content=$request->content;
+        $post->poster=$request->poster;
+
+        $post->save();
+
+        return redirect("/category");
+    }
+
     public function getEdit($id) {
         return view('category/edit') .$id;
     }

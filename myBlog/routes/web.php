@@ -23,8 +23,10 @@ Route::controller(CategoryController::class)->group(function(){
     Route::get('category/','getIndex')->name('category.index');
     Route::get('category/show/{id}', 'getShow')->name('category.show');
     Route::get('category/create', 'getCreate')->name('category.create');
+    Route::post('category/','store')->name('category.store');
     Route::get('category/edit/{id}',  'getEdit')->name('category.edit');   
 });
+
 
 route::get("prueba",function(){
     /*Crear post
